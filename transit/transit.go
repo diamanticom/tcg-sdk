@@ -228,91 +228,131 @@ func (value TypedValue) String() string {
 // NewTypedValue returns a reference to TypedValue or nil
 func NewTypedValue(v interface{}) *TypedValue {
 	p := new(TypedValue)
-	switch v.(type) {
+	switch v := v.(type) {
 	case bool:
 		p.ValueType = BooleanType
 		p.BoolValue = new(bool)
-		*p.BoolValue = v.(bool)
+		*p.BoolValue = v
 	case *bool:
 		p.ValueType = BooleanType
 		p.BoolValue = new(bool)
-		*p.BoolValue = *v.(*bool)
+		*p.BoolValue = *v
 	case float32:
 		p.ValueType = DoubleType
 		p.DoubleValue = new(float64)
-		*p.DoubleValue = float64(v.(float32))
+		*p.DoubleValue = float64(v)
 	case *float32:
 		p.ValueType = DoubleType
 		p.DoubleValue = new(float64)
-		*p.DoubleValue = float64(*v.(*float32))
+		*p.DoubleValue = float64(*v)
 	case float64:
 		p.ValueType = DoubleType
 		p.DoubleValue = new(float64)
-		*p.DoubleValue = v.(float64)
+		*p.DoubleValue = v
 	case *float64:
 		p.ValueType = DoubleType
 		p.DoubleValue = new(float64)
-		*p.DoubleValue = *v.(*float64)
+		*p.DoubleValue = *v
 	case int:
 		p.ValueType = IntegerType
 		p.IntegerValue = new(int64)
-		*p.IntegerValue = int64(v.(int))
+		*p.IntegerValue = int64(v)
 	case *int:
 		p.ValueType = IntegerType
 		p.IntegerValue = new(int64)
-		*p.IntegerValue = int64(*v.(*int))
+		*p.IntegerValue = int64(*v)
 	case int8:
 		p.ValueType = IntegerType
 		p.IntegerValue = new(int64)
-		*p.IntegerValue = int64(v.(int8))
+		*p.IntegerValue = int64(v)
 	case *int8:
 		p.ValueType = IntegerType
 		p.IntegerValue = new(int64)
-		*p.IntegerValue = int64(*v.(*int8))
+		*p.IntegerValue = int64(*v)
 	case int16:
 		p.ValueType = IntegerType
 		p.IntegerValue = new(int64)
-		*p.IntegerValue = int64(v.(int16))
+		*p.IntegerValue = int64(v)
 	case *int16:
 		p.ValueType = IntegerType
 		p.IntegerValue = new(int64)
-		*p.IntegerValue = int64(*v.(*int16))
+		*p.IntegerValue = int64(*v)
 	case int32:
 		p.ValueType = IntegerType
 		p.IntegerValue = new(int64)
-		*p.IntegerValue = int64(v.(int32))
+		*p.IntegerValue = int64(v)
 	case *int32:
 		p.ValueType = IntegerType
 		p.IntegerValue = new(int64)
-		*p.IntegerValue = int64(*v.(*int32))
+		*p.IntegerValue = int64(*v)
 	case int64:
 		p.ValueType = IntegerType
 		p.IntegerValue = new(int64)
-		*p.IntegerValue = v.(int64)
+		*p.IntegerValue = v
 	case *int64:
 		p.ValueType = IntegerType
 		p.IntegerValue = new(int64)
-		*p.IntegerValue = *v.(*int64)
+		*p.IntegerValue = *v
+	case uint:
+		p.ValueType = IntegerType
+		p.IntegerValue = new(int64)
+		*p.IntegerValue = int64(v)
+	case *uint:
+		p.ValueType = IntegerType
+		p.IntegerValue = new(int64)
+		*p.IntegerValue = int64(*v)
+	case uint8:
+		p.ValueType = IntegerType
+		p.IntegerValue = new(int64)
+		*p.IntegerValue = int64(v)
+	case *uint8:
+		p.ValueType = IntegerType
+		p.IntegerValue = new(int64)
+		*p.IntegerValue = int64(*v)
+	case uint16:
+		p.ValueType = IntegerType
+		p.IntegerValue = new(int64)
+		*p.IntegerValue = int64(v)
+	case *uint16:
+		p.ValueType = IntegerType
+		p.IntegerValue = new(int64)
+		*p.IntegerValue = int64(*v)
+	case uint32:
+		p.ValueType = IntegerType
+		p.IntegerValue = new(int64)
+		*p.IntegerValue = int64(v)
+	case *uint32:
+		p.ValueType = IntegerType
+		p.IntegerValue = new(int64)
+		*p.IntegerValue = int64(*v)
+	case uint64:
+		p.ValueType = IntegerType
+		p.IntegerValue = new(int64)
+		*p.IntegerValue = int64(v)
+	case *uint64:
+		p.ValueType = IntegerType
+		p.IntegerValue = new(int64)
+		*p.IntegerValue = int64(*v)
 	case string:
 		p.ValueType = StringType
 		p.StringValue = new(string)
-		*p.StringValue = v.(string)
+		*p.StringValue = v
 	case *string:
 		p.ValueType = StringType
 		p.StringValue = new(string)
-		*p.StringValue = *v.(*string)
+		*p.StringValue = *v
 	case Timestamp:
 		p.ValueType = TimeType
 		p.TimeValue = new(Timestamp)
-		*p.TimeValue = v.(Timestamp)
+		*p.TimeValue = v
 	case *Timestamp:
 		p.ValueType = TimeType
 		p.TimeValue = new(Timestamp)
-		*p.TimeValue = *v.(*Timestamp)
+		*p.TimeValue = *v
 	case TypedValue:
-		*p = v.(TypedValue)
+		*p = v
 	case *TypedValue:
-		*p = *v.(*TypedValue)
+		*p = *v
 	default:
 		return nil
 	}
