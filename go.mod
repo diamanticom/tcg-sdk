@@ -1,3 +1,3 @@
-module github.com/gwos/tcg/sdk
+module github.com/diamanticom/tcg-sdk
 
 go 1.18
