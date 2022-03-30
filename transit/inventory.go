@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/gwos/tcg/sdk/logper"
+	"github.com/diamanticom/tcg-sdk/logper"
 )
 
 type BaseInfo struct {

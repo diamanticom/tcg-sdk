@@ -11,8 +11,8 @@ import (
 	"strings"
 	"sync"
 
-	tcgerr "github.com/gwos/tcg/sdk/errors"
-	"github.com/gwos/tcg/sdk/logper"
+	tcgerr "github.com/diamanticom/tcg-sdk/errors"
+	"github.com/diamanticom/tcg-sdk/logper"
 )
 
 // Define entrypoints
